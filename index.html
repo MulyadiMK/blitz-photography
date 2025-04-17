@@ -4,8 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Blitz Photography by Mulyadi</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -66,14 +68,14 @@
       gap: 1.5rem;
       margin-top: 2rem;
     }
-    .gallery img {
+    .gallery a img {
       width: 100%;
       height: auto;
       border-radius: 16px;
       box-shadow: 0 6px 16px rgba(0,0,0,0.1);
       transition: transform 0.3s ease;
     }
-    .gallery img:hover {
+    .gallery a img:hover {
       transform: scale(1.03);
     }
     .testimoni {
@@ -97,7 +99,7 @@
     .video-wrapper {
       overflow: hidden;
       position: relative;
-      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      padding-top: 56.25%;
     }
     .video-wrapper iframe {
       position: absolute;
@@ -155,22 +157,21 @@
 <section data-aos="fade-up">
   <h2>Video Highlight</h2>
   <div class="video-wrapper">
-   <iframe width="560" height="315" src="https://www.youtube.com/embed/ps8-tdNiY8E?si=pXFSv72YdcSTz6l9" 
-   title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/ps8-tdNiY8E?si=pXFSv72YdcSTz6l9" title="YouTube video player" allowfullscreen></iframe>
   </div>
 </section>
 
 <section data-aos="fade-up">
   <h2>Galeri Foto Wedding</h2>
   <div class="gallery">
-    <img src="Blitz 1.jpg" alt="Foto 1">
-    <img src="Blitz 2.jpg" alt="Foto 2">
-    <img src="Blitz 3.jpg" alt="Foto 3">
-    <img src="Blitz 4.jpg" alt="Foto 4">
-    <img src="Blitz 5.jpg" alt="Foto 5">
-    <img src="Blitz 6.jpg" alt="Foto 6">
-    <img src="DSC_3564.jpg" alt="Foto 7">
-    <img src="DSC_3563.jpg" alt="Foto 8">
+    <a href="Blitz 1.jpg" class="glightbox"><img src="Blitz 1.jpg" alt="Pasangan pengantin Blitz 1"></a>
+    <a href="Blitz 2.jpg" class="glightbox"><img src="Blitz 2.jpg" alt="Pasangan pengantin Blitz 2"></a>
+    <a href="Blitz 3.jpg" class="glightbox"><img src="Blitz 3.jpg" alt="Pasangan pengantin Blitz 3"></a>
+    <a href="Blitz 4.jpg" class="glightbox"><img src="Blitz 4.jpg" alt="Pasangan pengantin Blitz 4"></a>
+    <a href="Blitz 5.jpg" class="glightbox"><img src="Blitz 5.jpg" alt="Pasangan pengantin Blitz 5"></a>
+    <a href="Blitz 6.jpg" class="glightbox"><img src="Blitz 6.jpg" alt="Pasangan pengantin Blitz 6"></a>
+    <a href="DSC_3564.jpg" class="glightbox"><img src="DSC_3564.jpg" alt="Pasangan pengantin Blitz 7"></a>
+    <a href="DSC_3563.jpg" class="glightbox"><img src="DSC_3563.jpg" alt="Pasangan pengantin Blitz 8"></a>
   </div>
 </section>
 
@@ -193,7 +194,7 @@
 
   <h3 style="margin-top:2rem;">Lokasi Kami</h3>
   <iframe 
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.727563779342!2d110.00310457373145!3d-1.854948136509455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e0519cf72f2f1bf%3A0xf844e1f6d18298ae!2sSyahiraPrint!5e0!3m2!1sid!2sid!4v1744915160409!5m2!1sid!2sid" 
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.727563779342!2d110.00310457373145!3d-1.854948136509455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e0519cf72f2f1bf%3A0xf844e1f6d18298ae!2sSyahiraPrint!5e0!3m2!1sid!2sid!4v1744917061962!5m2!1sid!2sid" 
   width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </section>
 
@@ -202,13 +203,16 @@
 </a>
 
 <footer>
-  <p>&copy; 2025 Blitz Photography | Copyright Mulyadi</p>
+  <p>&copy; <span id="year"></span> Blitz Photography | Copyright Mulyadi</p>
 </footer>
 
-<!-- AOS Animation JS -->
+<!-- JS Libraries -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 <script>
   AOS.init();
+  const lightbox = GLightbox({ selector: '.glightbox' });
+  document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 
 </body>
